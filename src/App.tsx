@@ -13,31 +13,46 @@ function App() {
     setTask([...task, inputValue]);
     setInputValue(""); // clear input value
   };
+  const buttonStyle = task
+    ? { justifyContent: "center", alignContent: "center" }
+    : { justifyContent: "center", alignContent: "center" };
+
   return (
     <>
-      <div>
-        <h1>TS + React</h1>
-        <p>"a minimalist To do app"</p>
-      </div>
-      <TaskDisplay id={1} name={inputValue} />
+      <main>
+        <div className="nav">
+          <h1>TS + React</h1>
+          <p>"a minimalist To do app"</p>
+        </div>
 
-      <div>
-        <label htmlFor="input-text">→ </label>
-        <input
-          id="input-text"
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          ref={inputRef}
-        />
-        <button onClick={handleButtonClick}>Enter</button>
-      </div>
+        <section>
+          <TaskDisplay id={1} name={inputValue} />
+          <h2 className="write">
+            {task.length ? "Let's work" : "Write something"}
+          </h2>
+          <ul>
+            <div style={buttonStyle}></div>
+            {task.map((text) => (
+              <li key={text}>{text}</li>
+            ))}{" "}
+          </ul>
+        </section>
 
-      <ul>
-        {task.map((text) => (
-          <li key={text}>{text}</li>
-        ))}{" "}
-      </ul>
+        <div className="container">
+          <label htmlFor="input-text">Type:</label>
+          <input
+            id="input-text"
+            type="text"
+            className="inputTask"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            ref={inputRef}
+          />
+          <button onClick={handleButtonClick} className="btn">
+            Enter
+          </button>
+        </div>
+      </main>
     </>
   );
 }

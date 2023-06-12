@@ -5,6 +5,13 @@
   text-align: center;
 }
 
+.nav {
+  z-index: 10;
+  width: 100vh;
+  position: fixed;
+  top: 0;
+  border-bottom: 1px solid #a134b4;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -26,11 +33,53 @@
     transform: rotate(360deg);
   }
 }
+main {
+  display: flex;
+
+  justify-content: center;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
+}
+.buttonStyle {
+  background-color: #fff;
+}
+.write {
+  text-align: center;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+  background-color: #151212;
+  height: 35px;
+  border-radius: 8px;
+  padding: 3px 25px;
+  margin-bottom: 20px;
+}
+.btn {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 8px;
+  padding: 2px 10px;
+}
+.inputTask {
+  margin-left: 10px;
+  padding: 2px 1px;
+}
+.displayTask {
+  width: 202px;
+  height: 200px;
+  word-wrap: break-word;
 }
 
 .card {
